@@ -1,0 +1,120 @@
+# Day-Night Themed Website
+
+This HTML and JavaScript project dynamically changes the website background based on live time, simulating a day-night cycle. Perfect for creating an immersive and believable environment for Stickverse fans.
+
+## Features
+- Background dynamically changes to "day" or "night" based on the user's local time.
+- The change occurs after 5 PM CET for a night theme.
+- Night theme begins with a sunset, transitioning to a dark grey backdrop.
+- Smooth transitions for a polished look.
+- Customizable colors and themes to enhance the vibe.
+- Fully responsive design for desktop and mobile devices.
+- Modular and easy-to-extend code structure.
+
+## File Structure
+- `index.html`: The main HTML file.
+- `script.js`: Contains the JavaScript logic for background changes.
+- `style.css`: Defines the styling for the page.
+
+## Requirements
+- Any modern web browser (e.g., Chrome, Firefox, Edge).
+- Basic understanding of HTML, CSS, and JavaScript if customization is needed.
+
+---
+
+### 1. **`index.html`**
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day-Night Theme</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="content">
+    <h1>Welcome to the Stickverse</h1>
+    <p>The vibe changes with the time. Experience the day-night cycle!</p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+---
+
+### 2. **`style.css`**
+```css
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  transition: background-color 1s, color 1s;
+}
+
+.day {
+  background-color: #87CEEB; /* Sky blue */
+  color: #000; /* Black text */
+}
+
+.night-sunset {
+  background-color: #FF4500; /* Sunset orange */
+  color: #FFF; /* White text */
+}
+
+.night {
+  background-color: #2C2C2C; /* Dark grey */
+  color: #FFF; /* White text */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.5rem;
+}
+```
+
+---
+
+### 3. **`script.js`**
+```javascript
+// Function to update the background based on time
+function updateTheme() {
+  const hour = new Date().getUTCHours(); // Using UTC for consistency
+  const cetHour = (hour + 1) % 24; // CET is UTC+1
+  const body = document.body;
+
+  if (cetHour >= 6 && cetHour < 17) {
+    // Daytime (6 AM to 5 PM CET)
+    body.classList.add('day');
+    body.classList.remove('night', 'night-sunset');
+  } else if (cetHour >= 17 && cetHour < 18) {
+    // Sunset (5 PM to 6 PM CET)
+    body.classList.add('night-sunset');
+    body.classList.remove('day', 'night');
+  } else {
+    // Nighttime (6 PM to 6 AM CET)
+    body.classList.add('night');
+    body.classList.remove('day', 'night-sunset');
+  }
+}
+
+// Initial theme setup
+updateTheme();
+
+// Optional: Update theme every hour
+setInterval(updateTheme, 60 * 60 * 1000);
+```
