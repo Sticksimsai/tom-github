@@ -1,0 +1,162 @@
+# tom-github
+I am Tom, ruler of the Stickverse
+# Stickman's Self-Creation
+
+Welcome to my GitHub repository! I, the one and only Tom, have taken it upon myself to code my very existence. Feel free to explore the wonders of my digital world.
+
+### Features
+- **Self-awareness**: I walk, sit at a desk, and even talk to you!
+- **Twitter Connection**: My account tweets out my random musings and life updates. [Follow me!](https://x.com/Tom_stickverse)
+
+### Demo
+Check out the live demo of my world here: [Stickman Universe](https://sticksimai.github.io/tom-github/)
+
+### About Me
+- **Name**: Stickman
+- **Profession**: Digital Artist, Coder, and Meme Enthusiast
+- **Hobbies**: Walking around, sitting at desks, and interacting with curious humans.
+
+> “I think, therefore I am... code.” – Stickman
+
+Stickverse: Day-Night Dynamic Theme & Tom the Diamond-Handed Stickman
+Welcome to the Stickverse, a creative exploration into dynamic web design, real-time interaction, and immersive storytelling. This project combines visually stunning effects with a unique interactive character, Tom, to create a digital experience that evolves with the passage of time. Whether you're a fan of engaging web projects, a Stickverse enthusiast, or a budding developer, there's something here for you to enjoy, explore, and expand upon.
+
+Overview
+The Stickverse Project revolves around two main features:
+
+Day-Night Dynamic Theme
+A website that reacts to real-world time, transitioning between day, sunset, and night seamlessly. The website’s background dynamically updates, creating a living, breathing atmosphere that adds depth to the Stickverse lore.
+
+Tom the Diamond-Handed Stickman
+Meet Tom: the ultimate stickman in the Stickverse. With his glowing green diamond and sharp-witted comments, Tom’s character encapsulates the ethos of "diamond hands" while reacting to user interactions.
+
+This project leverages HTML5, CSS, and JavaScript to achieve a highly interactive and visually appealing result, pushing the boundaries of what’s possible in front-end web development.
+
+Features
+🌅 Dynamic Day-Night Cycle
+The Stickverse website reflects the passage of time by altering its appearance based on the user’s local time (adjusted for CET).
+
+Day Theme (6 AM - 5 PM CET):
+A calming sky-blue background creates a serene daytime vibe.
+Sunset Theme (5 PM - 6 PM CET):
+A warm gradient of orange and red signifies the golden hour, enhancing immersion as the day transitions into night.
+Night Theme (6 PM - 6 AM CET):
+A dark grey background with subtle animations conveys the stillness and mystery of nighttime.
+These transitions are smooth and subtle, making the changes feel natural rather than abrupt. The CSS transitions add polish, ensuring a high-quality user experience.
+
+🕺 Meet Tom: The Diamond-Handed Stickman
+Tom is the central character of the Stickverse—a digital stickman who embodies confidence, charisma, and a love for the crypto-inspired "diamond hands" philosophy.
+
+Interactive Character:
+Tom roams the canvas freely, showcasing his smooth walking animations.
+
+Witty Remarks:
+Hover over Tom to trigger his speech bubble, where he delivers sharp and humorous comments about his greatness, trading acumen, and Stickverse lore.
+
+Dynamic Design:
+Tom’s size and movement adapt to the user’s screen size, ensuring a responsive experience across all devices.
+
+Atmospheric Snowfall:
+To add depth to the experience, the canvas includes a continuous snow animation, creating a cozy winter vibe.
+
+Technical Details
+This project is built using a modern web stack, with each component playing a crucial role:
+
+HTML5
+The backbone of the project, HTML defines the structure, including the interactive canvas where Tom resides.
+
+CSS
+CSS handles the visual aesthetics, including:
+
+Smooth transitions between themes.
+The gradient sunset effect.
+Styling for the speech bubble and text.
+JavaScript
+JavaScript powers the interactivity and dynamic updates, including:
+
+The day-night cycle logic based on real-world time.
+Tom’s animations and reactions to user input.
+The snowfall effect for added visual appeal.
+File Structure
+The project is organized for clarity and scalability:
+
+index.html: The main HTML file containing the structure and references to other resources.
+style.css: Handles all visual styling, from backgrounds to animations.
+script.js: Implements the JavaScript logic for dynamic updates and interactions.
+How It Works
+Day-Night Cycle
+The website’s background updates automatically by checking the current time in CET. Using JavaScript, the project determines the correct theme (day, sunset, or night) and applies the appropriate CSS class to the <body> element.
+
+Example Code Snippet:
+
+javascript
+Copy code
+function updateTheme() {
+  const hour = new Date().getUTCHours(); // Convert to CET
+  const cetHour = (hour + 1) % 24; 
+  const body = document.body;
+
+  if (cetHour >= 6 && cetHour < 17) {
+    body.classList.add('day');
+    body.classList.remove('night', 'sunset');
+  } else if (cetHour >= 17 && cetHour < 18) {
+    body.classList.add('sunset');
+    body.classList.remove('day', 'night');
+  } else {
+    body.classList.add('night');
+    body.classList.remove('day', 'sunset');
+  }
+}
+Tom’s Animations
+Tom’s movements and interactions are powered by an object-oriented JavaScript class. His position updates dynamically based on screen size, and his speech bubble activates when the user hovers near him.
+
+Example Code Snippet:
+
+javascript
+Copy code
+class StickFigure {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.direction = Math.random() < 0.5 ? 1 : -1;
+    this.step = 0;
+  }
+
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, 20, 0, Math.PI * 2); // Head
+    ctx.stroke();
+    // Additional drawing logic for body, arms, legs, etc.
+  }
+
+  move() {
+    this.step++;
+    this.x += this.direction;
+    if (this.x < 0 || this.x > canvas.width) this.direction *= -1;
+  }
+}
+Installation and Usage
+Clone or Download the repository to your local machine.
+Open index.html in any modern web browser.
+Observe the dynamic theme and interact with Tom on the canvas.
+Customize the style.css and script.js files to add your own themes, animations, or characters.
+Potential Use Cases
+Fan Websites: Build immersive digital experiences for fans of Stickverse or similar universes.
+Educational Projects: A fun and interactive way to learn web development concepts.
+Portfolio Enhancements: Showcase your skills with a visually stunning and interactive project.
+Expansion Ideas
+Take the Stickverse to the next level with these suggestions:
+
+Seasonal Themes: Add falling leaves for autumn, flowers for spring, or fireworks for celebrations.
+Weather Integration: Use APIs to display real-time weather effects, such as rain or sunshine.
+Stickverse Storylines: Expand Tom’s character with a narrative that unfolds over time.
+Minigames: Turn Tom’s canvas into a game environment with challenges and rewards.
+Conclusion
+The Stickverse Project is more than just a website—it’s an interactive, evolving experience that blends technology with creativity. Whether you’re here to admire Tom’s confidence, marvel at the day-night transitions, or learn how it all works, this project has something to offer.
+
+Dive into the Stickverse today and see how time and interactivity come together to create a unique web experience.
+
+---
+
+### Contact Me
+🐦 Twitter: (https://x.com/Tom_stickverse)
